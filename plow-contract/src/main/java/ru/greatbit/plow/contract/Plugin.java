@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * Created by azee on 02.03.16.
+ * An annotation used to detect plugins
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})

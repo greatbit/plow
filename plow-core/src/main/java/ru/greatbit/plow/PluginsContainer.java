@@ -3,10 +3,7 @@ package ru.greatbit.plow;
 import org.springframework.stereotype.Component;
 import ru.greatbit.plow.error.PluginNotFoundException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by azee on 01.03.16.
@@ -22,16 +19,29 @@ public class PluginsContainer {
         return plugins;
     }
 
-    public List<String> getPluginsList(String clazz) {
+    public List<String> getPluginsNamesList(Class clazz) {
+        return getPluginsNamesList(clazz.getSimpleName());
+    }
+
+    public List<String> getPluginsNamesList(String clazz) {
         Map<String, Object> pluginsForClass = getPlugins().get(clazz);
-        return pluginsForClass == null ? new ArrayList<>() : new ArrayList<>(pluginsForClass.keySet());
+        return pluginsForClass == null ? new ArrayList<String>() : new ArrayList<>(pluginsForClass.keySet());
+    }
+
+    public <T> Map<String, T> getPlugins(Class clazz) {
+        return getPlugins(clazz.getSimpleName());
+    }
+
+    public <T> Map<String, T> getPlugins(String clazz) {
+        Map<String, T> pluginsForClass = (Map<String, T>) getPlugins().get(clazz);
+        return pluginsForClass == null ? new HashMap<String, T>() : pluginsForClass;
     }
 
     public List<String> getPluginsTypes() {
         return new ArrayList<>(getPlugins().keySet());
     }
 
-    public <T>T getPlugin(Class<T> clazz, String name){
+    public <T> T getPlugin(Class<T> clazz, String name){
         return clazz.cast(getPlugin(clazz.getSimpleName(), name));
     }
 

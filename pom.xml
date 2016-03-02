@@ -2,12 +2,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
     <groupId>ru.greatbit.plow</groupId>
     <artifactId>plow-all</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>Currency API</name>
     <packaging>pom</packaging>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:azee/plow</connection>
+        <developerConnection>scm:git:git@github.com:azee/plow.git</developerConnection>
+        <url>scm:git:git@github.com:azee/plow.git</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>owner</id>
+            <name>Aziz Namazov</name>
+            <email>azeedrums@gmail.com</email>
+            <timezone>UTC+4</timezone>
+        </developer>
+    </developers>
 
     <modules>
         <module>plow-core</module>
@@ -16,8 +45,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <spring.version>4.2.2.RELEASE</spring.version>
     </properties>
 
@@ -57,24 +86,6 @@
                 <version>${spring.version}</version>
                 <scope>test</scope>
             </dependency>
-
-            <!--<dependency>-->
-                <!--<groupId>cglib</groupId>-->
-                <!--<artifactId>cglib-nodep</artifactId>-->
-                <!--<version>2.1_3</version>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-                <!--<groupId>ru.greatbit</groupId>-->
-                <!--<artifactId>java-utils</artifactId>-->
-                <!--<version>1.16</version>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-                <!--<groupId>commons-lang</groupId>-->
-                <!--<artifactId>commons-lang</artifactId>-->
-                <!--<version>2.6</version>-->
-            <!--</dependency>-->
 
             <!-- Utils -->
             <dependency>
@@ -132,6 +143,67 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <configuration>
+                            <passphrase>${gpg.passphrase}</passphrase>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
