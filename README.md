@@ -1,3 +1,7 @@
+java-utils
+==========
+[![Jenkins Build](http://azee.people.yandex.net/jenkins/buildStatus/icon?job=plow)](http://azee.people.yandex.net/jenkins/job/plow)
+
 Why not simply ApplicationContext.getBeansOfType? 
 It is structured. Access to bean takes O(1) instead of O(n). All discovery happens on app startup.
 You can set custom names - useful for UI integrations.
