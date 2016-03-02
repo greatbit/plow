@@ -29,9 +29,9 @@ No need to update (add interfaces) in spring config lookup section.
 
 Tutorial
 ==========
-1. Create an interface (contract) for your plugin. I recommend to do it in a separate module (no need for plugin to depend on system internals).
+-1. Create an interface (contract) for your plugin. I recommend to do it in a separate module (no need for plugin to depend on system internals).
 
-2. Add a dependency to your contract:
+-2. Add a dependency to your contract:
 
 ```
 <dependency>
@@ -41,15 +41,15 @@ Tutorial
 <dependency/>    
 ```
 
-3. Create a plugin implementing your contract
+-3. Create a plugin implementing your contract
 
-4. Annotate your plugin class with ```@Plugin``` annotation
+-4. Annotate your plugin class with ```@Plugin``` annotation
 In annotation plugin name could be defined (will be a class name if missing).
 Set your interface as a "contract" in annotation
 
-5. Add you plugin to application classpath (e.g. - add maven dependency)
+-5. Add you plugin to application classpath (e.g. - add maven dependency)
 
-6. Add following dependencies to application:
+-6. Add following dependencies to application:
 
 ```
 <dependency>
@@ -64,13 +64,13 @@ Set your interface as a "contract" in annotation
 <dependency/>
 ```
 
-7. Add Plow to application Spring Context:
+-7. Add Plow to application Spring Context:
 
 ```
 <bean class="ru.greatbit.plow.PluginsPostProcessor"/>
 ```
 
-8. Add a component scan for your plugins namespace:
+-8. Add a component scan for your plugins namespace:
 
 ```
 <context:component-scan base-package="ru.greatbit.plow">
@@ -79,6 +79,6 @@ Set your interface as a "contract" in annotation
 ```
 (base-package="ru.greatbit.plow" - change it to your plugins packages)
 
-9. @Autowire PluginsContainer whenever you need to use plugins. Get them using PluginsContainer methods by classes (types) and names. 
+-9. @Autowire PluginsContainer whenever you need to use plugins. Get them using PluginsContainer methods by classes (types) and names. 
 Get lists of types and names. 
 Iterate through plugins. 
