@@ -2,6 +2,10 @@ PLOW
 ==========
 [![Jenkins Build](http://azee.people.yandex.net/jenkins/buildStatus/icon?job=plow)](http://azee.people.yandex.net/jenkins/job/plow)
 
+Stable Version
+==========
+1.2
+
 About
 ==========
 A simple tool to build scalable pluggable applications. 
