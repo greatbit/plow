@@ -82,3 +82,12 @@ Set your interface as a "contract" in annotation
 -9. @Autowire PluginsContainer whenever you need to use plugins. Get them using PluginsContainer methods by classes (types) and names. 
 Get lists of types and names. 
 Iterate through plugins. 
+
+
+Examples
+==========
+Tests:
+https://github.com/azee/plow/tree/master/plow-core/src/test/java/ru/greatbit/plow
+
+Service:
+https://github.com/azee/currency-api
