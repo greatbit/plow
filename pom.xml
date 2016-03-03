@@ -10,9 +10,9 @@
 
     <groupId>ru.greatbit.plow</groupId>
     <artifactId>plow-all</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
 
-    <name>Currency API</name>
+    <name>Plow</name>
     <packaging>pom</packaging>
 
     <licenses>
