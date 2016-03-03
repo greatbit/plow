@@ -8,14 +8,14 @@ Stable Version
 
 About
 ==========
-A simple tool to build scalable pluggable applications. 
+A simple tool to build scalable pluggable JAVA applications. 
 
-Just add a dependency with a plugin and get its funtionality running.
+Just add a dependency with a plugin and get its functionality running.
  
 Plugins can be accessed by types and names. Types and names could be retrieved - easy UI integration - no need to update a UI if a new pluggable functionality added. 
 Just pass a type and name (lists could be retrieved as well) to make plugin do what you want.
 
-Plugins are Spring singletons but there is no need for plugins to depend from Spring.
+Plugins are Spring singletons but there is no need for plugins to depend on Spring.
 
 
 
@@ -25,9 +25,9 @@ It is structured. Access to bean takes O(1) instead of O(n). All discovery happe
 
 You can set custom names - useful for UI integrations.
 
-May have beans of the same interfaces but not all of them have to be accessable as a plugin.
+May have beans of the same interfaces but not all of them have to be accessible as a plugin.
 
-External plugin don't have to use Spring dependencies (e.g. for annotations) - no version collisions in runtime.
+External plugin don't have to use Spring dependencies (e.g. for annotations support) - no versions collisions in runtime.
  
 No need to update (add interfaces) in spring config lookup section.
 
@@ -48,7 +48,7 @@ Tutorial
 -3. Create a plugin implementing your contract
 
 -4. Annotate your plugin class with ```@Plugin``` annotation
-In annotation plugin name could be defined (will be a class name if missing).
+Plugin name could be defined in annotation (will be a class simple name if missing).
 Set your interface as a "contract" in annotation
 
 -5. Add you plugin to application classpath (e.g. - add maven dependency)
