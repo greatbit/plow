@@ -10,7 +10,7 @@
 
     <groupId>ru.greatbit.plow</groupId>
     <artifactId>plow-all</artifactId>
-    <version>1.3</version>
+    <version>1.4-SNAPSHOT</version>
 
     <name>Plow</name>
     <packaging>pom</packaging>
