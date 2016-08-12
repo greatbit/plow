@@ -13,5 +13,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 public @interface Plugin {
     String name() default "";
+    String title() default "";
     Class contract();
 }
