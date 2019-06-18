@@ -28,7 +28,7 @@ public class PluginsContainer {
         return pluginsForClass == null ? new ArrayList<String>() : new ArrayList<>(pluginsForClass.keySet());
     }
 
-    public <T> Map<String, T> getPlugins(Class clazz) {
+    public <T> Map<String, T> getPlugins(Class<T> clazz) {
         return getPlugins(clazz.getSimpleName());
     }
 
