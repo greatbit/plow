@@ -1,5 +1,7 @@
 PLOW
 ==========
+
+[![Join the chat at https://gitter.im/azee/plow](https://badges.gitter.im/azee/plow.svg)](https://gitter.im/azee/plow?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Jenkins Build](http://azee.people.yandex.net/jenkins/buildStatus/icon?job=plow)](http://azee.people.yandex.net/jenkins/job/plow)
 
 Stable Version
